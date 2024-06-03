@@ -1,3 +1,24 @@
 # Array Problems
 
 ## Two Sum: Find two numbers that add up to a specific target.
+
+# Solution
+
+class Solution(object):
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        obj = {} # creating a dic to store values and index of list
+        for index,value in enumerate(nums):
+            remaining = target-value # subtracting from target to find the other num
+            if remaining in obj: 
+                return [index,obj[remaining]] #if in dic items we got the num 
+            else:
+                obj[value] = index #not in dic, add it so that we can print in the next step
+
+
+
+                       

@@ -1,0 +1,31 @@
+Given a roman numeral, convert it to an integer.
+
+ 
+
+Example 1:
+
+Input: s = "III"
+Output: 3
+Explanation: III = 3.
+
+
+
+class Solution:
+    def romanToInt(self, s: str) -> int:
+        obj={
+            "I":1, "V":5, "X":10, "L":50,
+            "C":100, "D":500, "M":1000
+            }
+
+        temp = 0
+        for i in range(len(s)-1):
+        #we are just going till 2nd last digit of str instead of complete value
+        
+            if obj[s[i]] < obj[s[i+1]]: #used -1 above to avoid index error here 
+                temp -= obj[s[i]]
+
+            else:
+                temp += obj[s[i]]
+        
+        #adding last digit in return statement        
+        return temp + obj[s[-1]]
